@@ -1,20 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import {  collection, onSnapshot, query, updateDoc, doc, addDoc, deleteDoc } from '@firebase/firestore';
-
 import Todo from './Todo';
 import {db} from './firebase';
 import { async } from '@firebase/util';
-
 
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
   const [theme, setTheme] = useState('light'); 
-  
 
-  
   useEffect( () => {
     const q = query(collection(db, 'todos'))
     const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
@@ -24,20 +20,15 @@ function App() {
       });
       setTodos(todosArr)
     })
-
- 
     return () => unsubscribe
   }, [])
 
-   
-
+  
    const handleCompleteTodo = async (todo) => {
     await updateDoc(doc(db, 'todos', todo.id), {
       completed: !todo.completed
     })
   }
-
- 
 
   const createTodo = async (e) => {
     e.preventDefault(e);
@@ -68,7 +59,7 @@ function App() {
   return (
     
     <div className='container' >
-      <div>
+      <div className='sub_container'>
         <h1>Todo app</h1>
         <form onSubmit={createTodo}>
           <input 
@@ -78,28 +69,20 @@ function App() {
            placeholder='Add Todo'
            ></input>
           <button type='submit' className='addButton'>  <AiOutlinePlus/> </button>
-         
         </form>
-        
         <ul>
           {todos.map((todo, index) => (
-           
             <Todo key={index} todo={todo} handleCompleteTodo={handleCompleteTodo} deleteTodo={deleteTodo} />
-
             ))}
         </ul>
-
-        {todos.length < 1 ? null : <p>{`You have ${todos.length} todos`}</p> }
-        
+        {/* {todos.length < 1 ? null : <p>{`You have ${todos.length} todos`}</p> } */}
+        {todos.length === 0 ? <p>Please type a todo here</p> : <p>{`You have ${todos.length} todos`}</p>}
+        <br/>
         <button
         onClick={toggleTheme}
         style={{
           backgroundColor: theme === 'light' ? '#ffffff' : '#000000',
           color: theme === 'light' ? '#000000' : '#ffffff',
-          padding: '10px',
-          borderRadius: '5px',
-          border: 'none',
-          cursor: 'pointer',
         }}
       >
         {theme === 'light' ? 'Dark mode' : 'Light mode'}
@@ -107,7 +90,7 @@ function App() {
         
       </div>
     </div>
-    
+
   );
 }
 

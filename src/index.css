@@ -5,7 +5,7 @@
 
 
   .light-mode {
-    background: linear-gradient(to right, rgb(236, 203, 210) , rgb(238, 173, 187));
+    background: rgb(238, 173, 187);
   }
   
   .dark-mode {
@@ -19,15 +19,15 @@
 
 li{
     list-style: none;
-    margin: 15px;
+    padding: 5%;
 }
 
 
 body {
-    background: linear-gradient(to right, rgb(236, 203, 210) , rgb(238, 173, 187));
+    background: rgb 238, 173, 187;
     width: 100vh;
-    height: 100vh;
-    position: relative;
+    height: 100vh; 
+    /* position: relative;*/
   }
   
   
@@ -35,12 +35,13 @@ body {
     display: grid;
     place-items: center;
     background-color: rgb(246, 240, 244);
-    width: 600px;
-    height: auto;
+    width: 50%;
+    /* height: auto; */
     border-radius:  0 15px  0 15px;
-    position: relative;
-    left: 650px;
-    top: 150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     padding: 2%;
    
   }
@@ -49,28 +50,35 @@ body {
     color: peru;
     text-align: center;
     margin-top: 0;
+    width: 100%;
   }
 
   input{
-    margin: 5px;
-    width: 450px;
-    height: 39px;
+    margin: 1%;
+    width: 100%;
+    height: 7.8%;
     border: none;
     border-bottom: 1px solid black;
     border-radius: 2px;
-    font-size: 18px;
+    font-size: 1.2rem;
   }
   input:focus {
     outline: none; 
     border-bottom: 1px solid peru;
+    
   }
 
   form{
     display: flex;
     flex-wrap: nowrap;
+    width: 100%;
   }
 
-
+ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 
   li{
@@ -78,8 +86,10 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: rgb(246, 233, 220);
-    padding: 3%;
+    /* padding: 3%; */
     border-radius: 5px;
+    width: 100%;
+    margin-bottom: 2%;
   }
   li:hover{
     background-color: rgb(235, 201, 166);
@@ -88,18 +98,18 @@ body {
     border: none;
     background-color: transparent;
     color: peru;
-    font-size: 20px;
+    font-size: 1.25rem;
     margin: 2%;
   }
 
   .checkboxButton {
-    width: 15px;
+    width: 20%;
     height: auto;
     margin: 15px;
   }
   .deleteButton:hover{
     color: rgb(240, 126, 13);
-    font-size: 25px;
+    font-size: 1.5rem;
     transition: font-size 0.3s; 
   }
   .deleteButton:focus{
@@ -113,35 +123,32 @@ body {
     border: none;
     background-color: transparent;
     color: peru;
-    font-size: 28px;
+    font-size: 2rem;
   }
 
 .addButton:hover{
     color: rgb(240, 126, 13);
-    font-size: 30px;
+    font-size: 2.25rem;
     transition: font-size 0.3s; 
   }
 
   .addButton:focus{
     color: rgb(122, 65, 7);
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
-    font-size: 35px;
+    font-size: 1.75rem;
     transition: font-size 0.5s; 
   }
 
 
 
 
-   .container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  } 
 
 
   .todo-container{
     display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
   }
 
  
@@ -150,37 +157,14 @@ body {
   
 
   
-  @media (max-width: 480px) {
+  /* @media (max-width: 480px) {
    
     
     li{
         list-style: none;
         margin: 5px;
     }
-    
-    
-    body {
-        background: linear-gradient(to right, rgb(236, 203, 210) , rgb(238, 173, 187));
-        width: 100vh;
-        height: 100vh;
-        position: relative;
-      }
-      
-      
-      .container{
-        display: grid;
-        place-items: center;
-        background-color: rgb(246, 240, 244);
-        width: 350px;
-        height: auto;
-        border-radius:  0 15px  0 15px;
-        position: relative;
-        left: 5px;
-        top: 5px;
-        padding: 2%;
-       
-      }
-    
+
       h1{
        font-size: 18px;
       }
@@ -249,26 +233,21 @@ body {
     }
 
   
-  }
+  } */
   
-  @media (max-width: 1000px) {
+  /* @media (max-width: 1000px) {
    
     
     li{
         list-style: none;
         margin: 5px;
     }
+     */
     
-    
-    body {
-        background: linear-gradient(to right, rgb(236, 203, 210) , rgb(238, 173, 187));
-        width: 100vh;
-        height: 100vh;
-        position: relative;
-      }
+   
       
       
-      .container{
+      /* .container{
         display: grid;
         place-items: center;
         background-color: rgb(246, 240, 244);
@@ -280,9 +259,9 @@ body {
         top: 150px;
         padding: 2%;
        
-      }
+      } */
     
-      h1{
+      /* h1{
        font-size: 19px;
       }
     
@@ -350,7 +329,7 @@ body {
     }
 
   
-  }
+  } */
   
 
   

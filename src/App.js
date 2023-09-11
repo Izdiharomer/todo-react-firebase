@@ -5,6 +5,7 @@ import Todo from './Todo';
 import {db} from './firebase';
 import { async } from '@firebase/util';
 import { useTranslation } from 'react-i18next';
+import './translation.css'
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -65,9 +66,27 @@ const changeLanguage = lng => {
   return (
     <div className='test'>
       <div>
-        <button className="btn" onClick={() => changeLanguage('en')}>english</button>
-        <button className="btn" onClick={() => changeLanguage('tr')}>Turkish</button>
-    </div>
+  <input
+    id="language-toggle"
+    placeholder="tr"
+    className="check-toggle check-toggle-round-flat"
+    type="checkbox"
+    onChange={(e) => {
+      const languageText = document.getElementById('language-text'); 
+      if (e.target.checked) {
+        changeLanguage('tr'); 
+        languageText.style.color = 'white'; 
+      } else {
+         
+        languageText.style.color = ''; 
+      }
+    }}
+  />
+  <label for="language-toggle"></label>
+  <span id="language-text" className="on">Tr</span>
+  
+</div>
+
     <div className='container' >
       <div className='sub_container'>
 

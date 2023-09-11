@@ -1,6 +1,4 @@
-.test {
-  background-color: aqua;
-}
+
 
 *{
     font-family: cursive;
@@ -16,7 +14,7 @@
   }
   
 body {
-    background: rgb 238, 173, 187;
+    background: rgb(238, 173, 187);
   }
   
   

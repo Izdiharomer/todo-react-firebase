@@ -1,0 +1,10 @@
+{
+    "translation": {
+      "app.title": "Todo App",
+      "app.placeholder": "Add Todo",
+      "app.addTodo": "Add Todo",
+      "app.todos": "You have {{count}} todo",
+      "app.todos_plural": "You have {{count}} todos"
+    }
+  }
+  

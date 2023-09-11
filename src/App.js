@@ -4,12 +4,18 @@ import {  collection, onSnapshot, query, updateDoc, doc, addDoc, deleteDoc } fro
 import Todo from './Todo';
 import {db} from './firebase';
 import { async } from '@firebase/util';
-
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
   const [theme, setTheme] = useState('light'); 
+  
+const { t, i18n } = useTranslation();
+const changeLanguage = lng => {
+  i18n.changeLanguage(lng);
+};
+
 
   useEffect( () => {
     const q = query(collection(db, 'todos'))
@@ -57,16 +63,21 @@ function App() {
   };
 
   return (
-    
+    <div className='test'>
+      <div>
+        <button className="btn" onClick={() => changeLanguage('en')}>english</button>
+        <button className="btn" onClick={() => changeLanguage('tr')}>Turkish</button>
+    </div>
     <div className='container' >
       <div className='sub_container'>
-        <h1>Todo app</h1>
+
+        <h1>{t("title")}</h1>
         <form onSubmit={createTodo}>
           <input 
           value={input} 
           onChange={(e) => setInput(e.target.value)}
           type='text'
-           placeholder='Add Todo'
+           placeholder={t('placeholder')}
            ></input>
           <button type='submit' className='addButton'>  <AiOutlinePlus/> </button>
         </form>
@@ -75,20 +86,24 @@ function App() {
             <Todo key={index} todo={todo} handleCompleteTodo={handleCompleteTodo} deleteTodo={deleteTodo} />
             ))}
         </ul>
-        {/* {todos.length < 1 ? null : <p>{`You have ${todos.length} todos`}</p> } */}
-        {todos.length === 0 ? <p>Please type a todo here</p> : <p>{`You have ${todos.length} todos`}</p>}
+        {todos.length === 0 ? <p>{t("message")}</p> : <p>{t('app.todos', { count: todos.length })}</p>}
         <br/>
         <button
         onClick={toggleTheme}
         style={{
           backgroundColor: theme === 'light' ? '#ffffff' : '#000000',
           color: theme === 'light' ? '#000000' : '#ffffff',
+          padding: '2%',
+          borderRadius: '5px',
+          border: 'none',
+          cursor: 'pointer',
         }}
       >
-        {theme === 'light' ? 'Dark mode' : 'Light mode'}
+         {theme === 'light' ? t('dark-mode') : t('light-mode')}
       </button>
         
       </div>
+    </div>
     </div>
 
   );

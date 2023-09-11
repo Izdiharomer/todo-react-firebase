@@ -1,0 +1,11 @@
+
+{
+    "translation": {
+      "app.title": "Yapılacaklar Listesi",
+      "app.placeholder": "Yeni bir görev ekleyin",
+      "app.addTodo": "Görev Ekle",
+      "app.todos": "{{count}} göreviniz var",
+      "app.todos_plural": "{{count}} göreviniz var"
+    }
+  }
+  

@@ -5,7 +5,9 @@ import Todo from './Todo';
 import {db} from './firebase';
 import { async } from '@firebase/util';
 import { useTranslation } from 'react-i18next';
-import './translation.css'
+import './translation.css';
+import LanguageSwitcher from './LanguageSwitcher';
+import ModeToggle from './ModeToggle';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -64,32 +66,10 @@ const changeLanguage = lng => {
   };
 
   return (
-    <div className='test'>
-      <div>
-  <input
-    id="language-toggle"
-    placeholder="tr"
-    className="check-toggle check-toggle-round-flat"
-    type="checkbox"
-    onChange={(e) => {
-      const languageText = document.getElementById('language-text'); 
-      if (e.target.checked) {
-        changeLanguage('tr'); 
-        languageText.style.color = 'white'; 
-      } else {
-         
-        languageText.style.color = ''; 
-      }
-    }}
-  />
-  <label for="language-toggle"></label>
-  <span id="language-text" className="on">Tr</span>
-  
-</div>
-
+    <div>
+      <LanguageSwitcher changeLanguage={changeLanguage} />
     <div className='container' >
       <div className='sub_container'>
-
         <h1>{t("title")}</h1>
         <form onSubmit={createTodo}>
           <input 
@@ -107,20 +87,7 @@ const changeLanguage = lng => {
         </ul>
         {todos.length === 0 ? <p>{t("message")}</p> : <p>{t('app.todos', { count: todos.length })}</p>}
         <br/>
-        <button
-        onClick={toggleTheme}
-        style={{
-          backgroundColor: theme === 'light' ? '#ffffff' : '#000000',
-          color: theme === 'light' ? '#000000' : '#ffffff',
-          padding: '2%',
-          borderRadius: '5px',
-          border: 'none',
-          cursor: 'pointer',
-        }}
-      >
-         {theme === 'light' ? t('dark-mode') : t('light-mode')}
-      </button>
-        
+      <ModeToggle theme={theme} toggleTheme={toggleTheme} t={t} /> 
       </div>
     </div>
     </div>

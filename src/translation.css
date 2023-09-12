@@ -1,3 +1,7 @@
+.language_switcher {
+  padding: 1%;
+}
+
 .switch {
     position: relative;
     display: inline-block;

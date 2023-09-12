@@ -8,6 +8,7 @@ import ModeToggle from './ModeToggle';
 import Todo from './Todo';
 import {db} from './firebase';
 import './translation.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -65,9 +66,10 @@ const changeLanguage = lng => {
   };
 
   return (
+    
     <div>
       <LanguageSwitcher changeLanguage={changeLanguage} />
-    <div className='container' >
+    <div className='container_1' >
       <div className='sub_container'>
         <h1>{t("title")}</h1>
         <form onSubmit={createTodo}>
@@ -90,6 +92,7 @@ const changeLanguage = lng => {
       </div>
     </div>
     </div>
+   
 
   );
 }

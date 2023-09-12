@@ -1,5 +1,4 @@
 
-
 *{
     font-family: cursive;
 }
@@ -17,8 +16,7 @@ body {
     background: rgb(238, 173, 187);
   }
   
-  
-  .container{
+  .container_1{
     display: grid;
     place-items: center;
     background-color: rgb(246, 240, 244);
@@ -135,4 +133,7 @@ ul {
     align-items: center;
     width: 80%;
   }
-
+.loader {
+  color: rgb(29, 46, 46);
+}
+  

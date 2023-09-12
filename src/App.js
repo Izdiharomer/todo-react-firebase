@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import {  collection, onSnapshot, query, updateDoc, doc, addDoc, deleteDoc } from '@firebase/firestore';
-import Todo from './Todo';
-import {db} from './firebase';
 import { async } from '@firebase/util';
 import { useTranslation } from 'react-i18next';
-import './translation.css';
 import LanguageSwitcher from './LanguageSwitcher';
 import ModeToggle from './ModeToggle';
+import Todo from './Todo';
+import {db} from './firebase';
+import './translation.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -51,7 +51,6 @@ const changeLanguage = lng => {
     })
     setInput('')
   }
-
  
   const deleteTodo = async (id) => {
     await deleteDoc(doc(db, 'todos', id))
